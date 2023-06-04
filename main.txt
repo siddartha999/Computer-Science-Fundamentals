@@ -1,0 +1,903 @@
+Computer Science
+
+
+
+Traditional Servers:
+An entire server with all of its Computing, Storage, Network for one application!
+Waste of resources and money
+A pretty static way of using stuff
+
+
+
+Virtual Machines:
+
+Keywords: Resource sharing, Hypervisor, Isolation
+
+A Virtual Machine (VM) is like a computer within a computer. It allows you to run different operating systems and applications on the same physical machine, without them interfering with each other, in isolation.
+
+Think of it like having multiple computers inside your computer. Each computer has its own hardware (like a CPU, GPU, RAM, DISK, NETWORK INTERFACE) that is emulated by the VM software. This allows you to create isolated environments for different tasks, like development, testing, or running multiple servers.
+
+
+VMs are commonly used in the following scenarios:
+Server Virtualization: Multiple virtual servers can run on a single physical machine, reducing hardware costs and increasing utilization.
+
+Development and Testing: Developers can use VMs to create isolated development and testing environments that mimic production environments.
+
+Cloud Computing: Cloud providers use VMs to provide on-demand computing resources to their customers. (AWS, Azure)
+
+Security: VMs can be used to create isolated environments that provide additional security and prevent malicious software from spreading across the network.
+
+
+
+
+
+
+
+
+Type 2 VM’s:
+Used in personal computers / small scale
+Hypervisor is installed on the top of a Host OS
+
+
+
+Type 1 VM’s:
+
+
+Used in large servers: AWS, Azure
+Hypervisor is installed directly on the server’s hardware, i.e NO Host OS!!
+
+
+Type 1 VMs generally offer better performance than Type 2 VMs because they have direct access to the host machine's hardware. This means that they can use hardware-assisted virtualization techniques to improve performance, like hardware-based memory and CPU management.
+
+Type 2 VMs have to rely on the host operating system for resources, which can lead to reduced performance compared to Type 1 VMs. However, they are generally easier to set up and use, and can be run on a wider range of hardware.
+
+
+
+
+Containers
+
+Containers are like virtual computers that allow you to run different software applications on your computer without them interfering with each other.
+
+
+Containers make use of the Host OS i.e they don’t come with an OS of their own.
+
+Containers virtualize the OS Application Layer
+
+
+
+Feature
+Virtual Machines (VMs)
+Containers
+Architecture
+Emulate the underlying hardware
+Share the host machine's kernel and system libraries
+Resource Management
+Full isolation of resources
+Share resources with the host machine and other containers
+Performance
+Typically slower, higher overhead
+Typically faster, lower overhead
+Scalability
+Less scalable, slower to spin up or down
+More scalable, faster to spin up or down
+Use Cases
+Enterprise applications, databases, legacy apps
+Modern web applications, microservices, DevOps
+Portability
+Less portable, tied to the underlying hardware
+Highly portable, can run on any platform or hardware
+Dependency Management
+Full isolation of dependencies
+Shared dependencies between containers
+Security
+High level of isolation and security
+Lower level of isolation and security
+
+
+In summary, VMs provide full isolation of resources and a high level of security, but are slower and less scalable than containers. Containers share the host machine's resources and provide better performance and scalability, but provide less isolation and security than VMs. The choice between VMs and containers depends on the specific use case and requirements of the application or workload.
+
+
+
+
+Q: Can containers and VMs be used together as a hybrid solution?
+A: Yes, containers and VMs can be used together as a hybrid solution to take advantage of the strengths of each technology.
+
+For example, you could use a VM to provide full isolation and security for a mission-critical application, while using containers to run lightweight and scalable microservices. This allows you to take advantage of the scalability and efficiency of containers, while still maintaining a high level of security and isolation for critical workloads.
+
+Another example is using a VM to provide a consistent and portable environment for running containers across different platforms and environments. This allows you to easily move containers between different cloud providers or on-premises environments, without worrying about compatibility issues.
+
+Overall, using a combination of VMs and containers can provide a flexible and powerful solution for modern software development and deployment, allowing you to take advantage of the strengths of each technology to meet the specific requirements of your applications and workloads.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kubernetes(K8s)
+
+Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management
+
+
+
+It was originally developed by Google and is now maintained by the Cloud Native Computing Foundation (CNCF).
+
+
+
+
+K8s cluster:
+
+
+
+
+Each K8s cluster has a Control-plane, which manages the state of the cluster
+
+
+In production, the Control-plane typically runs on multiple nodes that span several data-center zones
+
+
+
+
+Each Node runs pods, which are the smallest deployable units in Kubernetes!
+
+
+
+A pod hosts multiple containers and provides shared storage & networking for those containers (similar concept to a multiple containers in a VM)
+
+
+
+
+
+
+
+The Control-plane creates & manages these pods through the worker nodes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cluster:
+
+
+A Kubernetes cluster is a group of machines, called nodes, that work together to run containerized applications. Clusters can have one or more nodes.
+
+Nodes:
+
+
+A node is a physical or virtual machine that runs Kubernetes. Nodes can be worker nodes that run application containers or master nodes that manage the cluster.
+
+
+Master Node:
+
+The master node(s) manage the overall state of the cluster. It is responsible for running the Kubernetes control plane components, such as the API server, etcd, controller manager, and the scheduler.
+
+
+Worker Node:
+
+Worker nodes run containers inside pods. They also run the “kubelet” and “kube-proxy” services, which enable communication with the master node.
+
+
+Pods:
+
+
+
+
+
+Service:
+
+A service is a stable network abstraction that exposes an application running in a set of pods. It enables communication between different components within the cluster or with external clients
+
+
+
+
+
+
+
+Pros:
+
+Self healing
+
+
+Automatic roll-backs
+
+
+Scaling
+
+
+
+
+Portability (regardless of the underlying infrastructure i.e Cloud, In-house, Hybrid) 
+
+
+
+
+
+
+
+
+
+
+Cons:
+
+Complex to setup and manage
+
+
+High upfront cost
+
+
+
+
+
+
+
+Linux
+
+
+Pros and Shortcomings of Linux in comparison to Windows and macOS:
+
+
+Pros:
+
+Open Source: Linux is open source, which means its source code is available to the public, allowing for continuous development, improvement, and customization by the community
+
+
+Stability and Reliability: Linux is known for its stability and reliability. It can handle a large number of processes without crashing or slowing down significantly
+
+
+Security: Linux is considered more secure than Windows or macOS due to its design, permissions system, and the fact that it has a lower market share, making it less of a target for malware and viruses
+
+
+Performance: Linux generally offers better performance, especially on older or lower-spec hardware, as it consumes fewer resources and can be tailored to specific needs. Linux servers typically offer better performance and resource management than other operating systems, which is crucial in large-scale server environments
+
+
+Flexibility and Customization: Linux offers a wide range of distributions (distros), each with different goals, features, and user experiences. Users can choose a distro that fits their needs and customize it as required
+
+
+Cost: Linux is free to use and distribute, reducing the cost of ownership compared to proprietary operating systems like Windows and macOS
+
+
+Scalability: Linux is highly scalable, making it a suitable choice for large-scale servers that need to handle increasing loads and resources over time
+
+
+Customization: Linux can be easily customized to meet specific requirements or optimized for specific use cases, such as web servers, database servers, or application servers.
+
+
+These qualities make Linux the ultimate option for large scale servers such as AWS
+
+
+Shortcomings:
+
+Software Compatibility: Linux has limited compatibility with certain software, especially proprietary software and games, which are often designed specifically for Windows or macOS
+
+
+Hardware Compatibility: Some hardware vendors do not provide drivers or support for Linux, which can lead to compatibility issues, though this has improved over time
+
+
+Learning Curve: Linux may have a steeper learning curve for users who are accustomed to Windows or macOS, as it often requires a deeper understanding of the underlying system and the use of command-line interfaces
+
+
+Limited Support: While the community offers extensive support, Linux lacks official support from many software and hardware vendors, which can be a drawback for some users or organizations
+
+
+
+
+
+
+
+
+CPUs vs GPUs
+
+
+CPUs (Central Processing Units) and GPUs (Graphics Processing Units) are both types of processors used in computing devices, but they have different architectures and are designed for different tasks. Here's a comparison between the two:
+
+Architecture:
+
+CPU: CPUs are designed with a small number of cores (usually between 2 and 32) optimized for sequential serial processing. They are capable of executing a wide range of instructions and are designed for general-purpose computing tasks.
+
+
+GPU: GPUs have a parallel architecture consisting of thousands of smaller cores, which allows them to handle multiple tasks simultaneously. They are designed for data-parallel tasks, such as graphics rendering and complex mathematical calculations, where the same operation is performed on large datasets.
+
+Processing:
+
+CPU: CPUs are optimized for executing complex instruction sets and performing tasks that require decision-making, branching, and task switching. They are well-suited for running operating systems, managing input/output operations, and executing single-threaded or lightly parallelized applications.
+
+
+GPU: GPUs excel at performing simple, repetitive tasks on large datasets. They are specifically designed for parallel processing, making them ideal for graphics rendering, deep learning, scientific simulations, and other compute-intensive tasks that can be parallelized.
+
+Latency vs. Throughput:
+
+CPU: CPUs are designed to minimize latency, which is the time it takes to complete a single task. This makes them well-suited for tasks that require fast responses or involve complex decision-making.
+
+
+GPU: GPUs are designed to maximize throughput, which is the amount of work done in a given time. This makes them ideal for tasks that can be broken down into smaller, independent tasks that can be processed simultaneously, such as rendering pixels in a 3D scene or performing matrix calculations in machine learning algorithms.
+
+
+
+
+
+Memory Hierarchy:
+
+CPU: CPUs generally have larger caches and more sophisticated cache hierarchies, which help reduce latency when accessing frequently used data.
+
+GPU: GPUs have smaller caches but rely on high-bandwidth memory to feed their numerous cores with data. They are optimized for streaming large amounts of data, rather than accessing small amounts of data with low latency.
+
+Power Consumption:
+
+CPU: CPUs generally consume less power than GPUs, but their power consumption can vary greatly depending on the specific CPU model and workload.
+
+
+GPU: GPUs can consume more power than CPUs, especially when performing compute-intensive tasks. However, they can be more power-efficient for parallelizable tasks due to their ability to perform more calculations per watt.
+
+In summary, CPUs and GPUs have different architectures and are optimized for different types of tasks. CPUs are designed for general-purpose computing and excel at tasks that require complex decision-making, branching, and fast response times. GPUs, on the other hand, are designed for parallel processing and excel at tasks that can be broken down into smaller, independent tasks that can be processed simultaneously.
+
+
+
+Q) Can a computer be built exclusively on a GPU which interacts with the host OS, rather than having a combination of CPU + GPU ?
+
+In theory, it's possible to create a computer system that relies exclusively on GPUs for processing tasks. However, there are several practical challenges and limitations that make a combination of CPU and GPU more suitable for most systems.
+
+Instruction Set Architecture: CPUs are designed to handle a wide range of instructions, including complex branching and control flow operations, which are essential for executing an operating system and general-purpose applications. GPUs, on the other hand, are optimized for data-parallel tasks with simpler instructions. Adapting a GPU to function as a standalone processor for a host OS would require significant changes to the instruction set architecture.
+
+Compatibility: Operating systems and applications are generally designed to run on CPUs, which are based on well-established instruction set architectures (ISAs) such as x86 or ARM. Running an OS on a GPU would require extensive modifications to the OS, as well as compatibility layers to run existing applications.
+
+Performance: CPUs are optimized for low-latency, single-threaded tasks, which are common in day-to-day computing activities. While GPUs excel at parallelism and throughput, they are not well-suited for tasks with complex branching or those that require rapid context switching. As a result, a system built exclusively on GPUs might struggle with many general-purpose computing tasks.
+
+Power Efficiency: While GPUs can be more power-efficient for highly parallelizable tasks, their power consumption may be higher when performing tasks better suited for CPUs. This could lead to reduced battery life in portable devices or increased energy costs in data centers.
+
+Cost: Developing a system that relies exclusively on GPUs would likely be more expensive than a traditional CPU-GPU combination, as it would require significant R&D investments to address the aforementioned challenges.
+
+A combination of CPU and GPU provides a more balanced and efficient approach to computing, with each processor handling the tasks for which it is best suited. The CPU can manage complex branching, control flow, and low-latency tasks, while the GPU can handle parallelizable, compute-intensive workloads. This allows for a more efficient allocation of resources, resulting in better overall system performance.
+
+
+
+
+TCP, UDP, QUIC
+
+TCP: Transmission Control Protocol
+
+Reliable, Ordering of packets, retransmission in case of an error
+Slower than UDP due to 3 way handshake setup (SYN, SYN-ACK, ACK)
+Sequence numbers are randomized on both client and server
+Commonly used when reliability is more important than speed, such as in web browsing, email, or file transfer
+Implements congestion control & flow control
+Hard to spoof as it is difficult to guess the randomized sequence numbers
+
+
+UDP: User Datagram Protocol
+
+Faster than TCP, no handshake involved
+Unreliable, no guarantee of delivery, no sequencing of packets, no congestion control, no flow control
+Often used for live streaming, online gaming, and voice or video calls, where speed and low latency are more important than perfect data integrity
+
+TCP vs UDP
+
+
+
+Unicast, Multicast, Broadcast
+
+
+Unicast:
+
+Unicast is the term used when a single sender sends a message to a single recipient over a network. This is the most common form of information transfer on networks.
+
+TCP and Unicast: TCP is inherently a unicast protocol. It establishes a one-to-one connection between the sender and receiver. For example, when you browse a website, your computer (the client) establishes a unicast connection with the server hosting the website.
+
+UDP and Unicast: While UDP can be used in one-to-many communications, it also supports unicast communication. For instance, DNS queries are unicast UDP packets sent from a client to a DNS server.
+
+
+
+Multicast:
+
+Multicast refers to a group communication where a single message from one sender is forwarded to a group of receivers.
+
+TCP and Multicast: TCP is a unicast-oriented protocol and does not inherently support multicast. In typical configurations, you can't establish a TCP connection to multiple recipients.
+
+UDP and Multicast: UDP supports multicast through the Internet Group Management Protocol (IGMP). This is often used in scenarios where one sender needs to efficiently send the same data to many recipients. An example of this would be a live webinar where the video stream is sent to multiple viewers at the same time.
+
+
+
+
+
+
+Broadcast:
+
+Broadcast communication involves a single data packet being sent from one sender to all devices in a network.
+
+TCP and Broadcast: TCP doesn't support broadcasting because TCP requires both ends of the communication to be identified before the start of the transmission.
+
+UDP and Broadcast: UDP supports broadcast. A good example of this is the DHCP protocol, which uses UDP broadcasting to allocate IP addresses within a network. When a device connects to a network and needs an IP address, it sends a DHCP discover message as a UDP broadcast.
+
+
+QUIC:  a multiplexed transport over UDP
+
+
+
+
+Layer 4 protocol
+
+
+Built on top of UDP
+
+
+Secure by default
+
+
+1-RTT for connection establishment + key exchange for TLS !!
+
+
+0-RTT resumption (If a user switches from Wifi to Cellular, the server session is resumed instantaneously w/o a Round-Trip to establish a new connection). Another goal of the QUIC system was to improve performance during network-switch events, like what happens when a user of a mobile device moves from a local WiFi hotspot to a mobile network. When this occurs on TCP, a lengthy process starts where every existing connection times out one-by-one and is then re-established on demand. To solve this problem, QUIC includes a connection identifier which uniquely identifies the connection to the server regardless of source. This allows the connection to be re-established simply by sending a packet, which always contains this ID, as the original connection ID will still be valid even if the user's IP address changes.
+
+
+
+
+
+Best of TCP + UDP + TLS. The ultimate Transport protocol
+Google: HTTP/3 is designed to take advantage of QUIC's features, including lack of Head-Of-Line blocking between streams. The QUIC project started as an alternative to TCP+TLS+HTTP/2, with the goal of improving user experience, particularly page load times
+
+
+Properties:
+
+Improved performance: QUIC uses a number of techniques to improve performance, including connection resumption, 0-RTT connection setup, and header compression.
+
+
+Enhanced security: QUIC uses TLS 1.3 for encryption, which provides strong security and performance.
+
+
+Reduced latency: QUIC can reduce latency by up to 50% compared to TCP.
+
+
+Increased scalability: QUIC is designed to scale to handle more traffic than TCP.
+
+
+
+Illustrations:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Used in: 
+Web browsing
+Gaming
+Video streaming
+File Transfer 
+Pretty much everything you can think of…
+
+
+General Pros & Cons:
+
+
+
+
+
+
+
+
+
+
+
+HTTP: HyperText Transfer Protocol
+
+
+Layer 5: Application layer
+
+Evolution: HTTP 1.0 =>  HTTP 1.1 => HTTP/2 => HTTP/3
+
+
+HTTP primarily runs on TCP (except for HTTP/3)
+
+
+
+
+
+
+
+
+Client/Server Architecture:
+
+
+
+
+
+HTTP Request
+
+
+
+
+GET request does not have a Body: 0 Bytes
+
+
+
+
+
+
+HTTP response
+
+
+
+200X: Success
+300X: Redirection
+400X: Client error
+500X: Server error
+
+
+
+HTTP 1.0
+
+
+
+New TCP connection per each request & closed immediately afterwards ☠️
+Pretty Slow
+Didn’t even last a year
+
+HTTP 1.1
+
+
+
+
+
+
+
+Introduced “Keep-Alive” header
+
+
+Single Request per Connection, but it is not killed immediately as in 1.0
+
+
+A MAX of 6 TCP connections are maintained at a given point in time i.e a MAX of 6 requests are in transit 
+
+
+Suffers from Head-Of-Line-Blocking: Only after processing a request, the next request would be processed by the server
+
+
+Persisted TCP connection
+Lower latency
+Streaming with Chunked transfer (Recall the slow image loading from top to bottom in the old days!)
+Pipelining (disabled by default, was a disaster)
+
+
+
+HTTP 2.0
+
+
+
+
+Multiplexing: Multiple requests in a single channel (multiple requests are sent as 1 request)
+Each stream is independent of each other(#streamID), and no ordering is required to be followed while sending/receiving
+Solves Head-Of-Link-blocking at application layer, but not at the transport layer
+Compression: As #streamID is used, it is easier to compress both header and content
+Server Push
+Compatible with TLS 
+
+
+
+
+
+
+
+
+
+
+
+
+PROS:
+
+
+
+CONS:
+
+
+
+
+
+
+
+HTTP 3.0
+
+
+
+
+Replaces TCP with QUIC
+HTTP 3.0 is secure by default: QUIC with TLS 1.3
+Lots of goodness from HTTP 2.0 is carried over
+
+
+
+
+
+
+
+
+Relational Databases
+
+
+
+
+
+Key points
+
+Insertion of rows(at the end preferably) is actually quicker than Select, Update etc… Large no.of indexes do slow insertion down through as those indices need to be updated in the same operation (Atomicity & Consistency)
+
+
+Indices make Select, Updates faster. But, they come at a cost of storage & maintenance (need to be constantly updated based on updates to the rows)
+
+
+Google introduced Log-Based Index Tree to avoid reshuffling of B & B+ trees all the time due to inserts
+
+
+Make Select efficient (B+ , LSM tree indices etc..) => Update, Delete are optimized as well as a result
+
+
+Introduce a minimal amount of Indices to get the job done. Refrain the user from performing bulk operations as one (Even Insta, Twitter don’t allow them. Only 1 like, 1 post at a time..)
+
+
+Sequential primary keys are always preferred instead of UUID’s, for I/O optimization
+
+
+Sharding / Microservices etc.. prefer not to use them from Day 1. Simplicity is the King. Additional overhead caused by these techniques aren’t desirable to handle at the initial stage
+
+
+“SQL DB does not scale” is a Myth. There are plenty of ways to make a SQL DB scale. But, does it suit every use case out there? Of course not, no single DB on this planet caters well to each n every use case out there, otherwise only the DB would exist. SQL DB w/o constraints == NO SQL DB 
+
+
+Many SQL & NO SQL store data in B/B+ trees on the disk. What differentiates them are the guarantees they offer. SQL DB’s have to respect ACID, whereas NO-SQL need not adhere to any standards
+
+
+A Database is as performant as its storage layer. For instance, a time-series DB needs to storage data on the disk in such a way that the queries are optimized (it needs efficient range based queries)
+
+
+
+
+Q) Can a single Relational Database such as Postgres / Oracle / SQL contain multiple databases in a single instance?
+
+ANS) Yes, a single instance of PostgreSQL, Oracle, or SQL Server can contain multiple databases. This is useful for separating data from different applications, different modules of the same application, or different environments (like development, test, and production).
+
+For instance, in a single PostgreSQL instance, you can have multiple databases, and each database is a separate namespace. When you connect to a PostgreSQL server instance, you connect to a specific database within that instance. Each database has its own set of tables, views, indexes, and stored procedures.
+
+
+
+Q) Explain the pros and cons of maintaining multiple databases in a single DB instance?
+
+ANS) 
+	PROS: Cost-effectiveness, Data Isolation
+	CONS: Resource consumption, Harder to scale, Single point of failure
+	
+
+
+
+
+
+References
+
+You say SQL Databases can't scale ? | SQL vs NO-SQL | Similarities and Differences | Arpit Bhayani
+
+Why are joins not possible in NO-SQL Databases ? |  SQL vs NO-SQL | Arpit Bhayani | Part 2
+
+
+
+
+
+
+Sharding
+
+Horizontal scaling. A fundamental concept used by large scale applications
+
+
+
+
+
+
+It should ideally be the last step to consider. 
+
+
+
+3 key concepts of DB scaling: 
+	a) Vertical scaling (upgrading hardware)
+	b) Introducing Replicas 
+	 c) Sharding
+
+
+
+Both Horizontal & Vertical sharding exist. Horizontal Sharding is more popular and appeals to a wider no.of use cases
+
+
+*** Sharding => Split up 1 Big DB into multiple smaller ones (Kinda like monolith -> microservices)
+
+
+Scaling up hardware (Vertical scaling) has its own limits. 
+First, there are physical limits to RAM, processor power etc. 
+Second, doubling the RAM / compute of a machine would not yield a doubling of performance (Law of diminishing returns)
+
+
+Adding read replicas introduces a side-effect of “Eventual Consistency”, which may not be desirable in certain transaction involved use cases
+
+
+
+
+Sharding & Partitioning
+
+Database is Sharded. Data is Partitioned
+
+
+
+Here, 
+A & C data-partitions are at Shard 1.
+B, D & E data-partitions are at Shard 2.
+	i.e, 2 DB’s are handling 5 different data partitions, in total
+
+
+*** If for some reason, partition C is overwhelmed by requests for partition A, it is a lot easier to move the partition C to shard 2 or to a new one
+
+PostgresDB (and many more) offer partitions by default!
+
+
+
+
+
+
+
+PROS
+
+
+Scalability: More data incoming => More sharding 
+
+
+Availability & Fault tolerance: 
+Increased Read / Writes / handling Storage
+Even if some DB instances completely go down, majority of your customers might stay unimpacted
+
+
+
+
+CONS
+
+
+Complexity: Partition mapping is key. Additional layer might be required to route requests to the correct spots
+
+
+Non-uniformity of sharding data
+
+
+Aggregation of multiple tables is pushed up to the application layer, which isn’t ideal
+
+
+ACID transactions spanning across multiple shards are pretty hard to achieve
+
+
+Going back to UnSharded from Sharding is pretty pretty hard to implement 
+
+
+
+
+
+Q) Is Sharding exclusive to Relational Databases or does it apply to Non relational DB's as well
+
+
+A) Sharding is a concept that can be applied to both relational and non-relational databases. It's a type of database partitioning that separates very large databases into smaller, faster, more easily managed parts called data shards.
+
+The main goal of sharding is to make large databases more manageable and scalable, and it's typically used in situations where a database is so large that it's hard to maintain and manage on a single server.
+
+
+Q) Do shards guarantee instant consistency?
+
+A) Sharding itself does not guarantee instant (or "strong") consistency. In fact, maintaining strong consistency across shards in a distributed database is quite challenging.
+
+For a database to remain strongly consistent, every read operation must reflect the most recent write operation. This becomes complex in a sharded environment where data is distributed across multiple nodes (servers). If a write operation is performed on one shard, it might take some time for that update to propagate to all other shards due to network latency and other factors. During this time, a read operation on another shard might not reflect the latest write, leading to a state of "eventual consistency."
+
+There are techniques to enforce strong consistency in distributed databases, but these typically come with trade-offs in terms of performance and complexity. For example, to maintain strong consistency across all shards, a system could use a distributed transaction protocol, such as two-phase commit, which requires extra communication and coordination between shards. However, this would likely decrease overall system performance.
+
+
+
+
+Q) How hard is it to join shards?
+
+A) Performing join operations across multiple shards can be quite complex and resource-intensive, which is one of the reasons why sharding is often avoided in databases where joins are frequent.
+
+In a single-node database, join operations are typically performed within the same server, which can handle the operation quickly. However, when data is sharded across multiple nodes, performing a join operation requires gathering data from multiple servers, which can be slow due to network latency.
+
+Furthermore, executing a join across shards can lead to significant data transfer across the network, which can further slow down the operation and consume network bandwidth. This is often referred to as the "shard join problem" or "distributed join problem."
+
+One common approach to mitigate this problem is to denormalize the data or to duplicate certain parts of the data across shards, so that most join operations can be performed within a single shard. However, this comes with its own trade-offs in terms of data redundancy and consistency.
+
+Another approach is to design the application in such a way that most join operations are performed at the application level, after retrieving the necessary data from the shards. This typically involves more complex application logic and careful data modeling.
+
+Given these challenges, it's important to consider the data access patterns and query requirements of your application when deciding whether or not to use sharding.
+
+
+
+
+
+Q) What are 2PC, 3PC. Do they refer to the techniques to maintain ACID properties for distributed DB's?
+
+A) Two-Phase Commit (2PC) and Three-Phase Commit (3PC) are protocols used in distributed systems to ensure consistency, and hence they play a crucial role in maintaining ACID properties. They are primarily used for handling transactions that span multiple nodes (or shards, in the case of a database) in a distributed system.
+
+But, they’re both hard & complex to implement and maintain
+
+
+
+
+Reference
+
+
+
+Database Sharding and Partitioning
+
+
+What is Database Sharding?
+
+Avoid premature Database Sharding
+
+When should you shard your database?
+
+How do indexes make databases read faster?
